@@ -1,6 +1,8 @@
 package lab.desire.service;
 
+import lab.desire.domain.Product;
 import lab.desire.domain.Style;
+import lab.desire.repository.ProductRepository;
 import lab.desire.repository.StyleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,7 +25,25 @@ public class CMSService {
         styleRepository.save(new Style(sid, description, url));
     }
 
-    public Style find(String sid) {
+    public Style findStyle(String sid) {
+        return styleRepository.findOne(sid);
+    }
+
+    @Autowired
+    ProductRepository productRepository;
+    public void addProduct(String pid, String name, String url) {
+        productRepository.save(new Product(pid, name, url));
+    }
+    public Product findProduct(String pid) {
+        return productRepository.findOne(pid);
+    }
+
+    /**
+     * 이건 style, product relation table 이 만들어지면...
+     * @param sid
+     * @return
+     */
+    public Style findAll(String sid) {
         return styleRepository.findOne(sid);
     }
 }

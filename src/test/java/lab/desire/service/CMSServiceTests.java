@@ -28,18 +28,18 @@ public class CMSServiceTests {
     @Test
     public void saveOne() throws Exception {
         Style e = new Style("babo1", "한글도..", "http://localhost/babo.jpg");
-        cmsService.upload(e.getSid(), e.getDesc(), e.getRepresentImageUrl());
-        Style s = cmsService.find("babo1");
+        cmsService.upload(e.getSid(), e.getDescription(), e.getRepresentImageUrl());
+        Style s = cmsService.findStyle("babo1");
         Assert.assertEquals(e.getRepresentImageUrl(), s.getRepresentImageUrl());
     }
 
     @Test
     public void update() throws Exception {
         Style e = new Style("babo1", "한글도..", "http://localhost/babo.jpg");
-        cmsService.upload(e.getSid(), e.getDesc(), e.getRepresentImageUrl());
+        cmsService.upload(e.getSid(), e.getDescription(), e.getRepresentImageUrl());
         String expect = "http://remotehost/babo.jpg";
-        cmsService.update(e.getSid(), e.getDesc(), expect);
-        Style s = cmsService.find("babo1");
+        cmsService.update(e.getSid(), e.getDescription(), expect);
+        Style s = cmsService.findStyle("babo1");
         Assert.assertEquals(expect, s.getRepresentImageUrl());
     }
 }

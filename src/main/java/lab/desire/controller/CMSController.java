@@ -1,5 +1,6 @@
 package lab.desire.controller;
 
+import lab.desire.domain.Product;
 import lab.desire.domain.Style;
 import lab.desire.service.CMSService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class CMSController {
     @RequestMapping("/style/find")
     @ResponseBody
     public Style find(@RequestParam String sid) {
-        return cmsService.find(sid);
+        return cmsService.findStyle(sid);
     }
 
     @RequestMapping("/style/upload")
@@ -29,7 +30,7 @@ public class CMSController {
                       @RequestParam String desc,
                       @RequestParam String url) {
         cmsService.upload(sid, desc, url);
-        return cmsService.find(sid);
+        return cmsService.findStyle(sid);
     }
 
     @RequestMapping("/style/update")
@@ -38,6 +39,27 @@ public class CMSController {
                         @RequestParam String desc,
                         @RequestParam String url) {
         cmsService.update(sid, desc, url);
-        return cmsService.find(sid);
+        return cmsService.findStyle(sid);
+    }
+
+    @RequestMapping("/prod/upload")
+    @ResponseBody
+    public Product prodUpload(@RequestParam String pid,
+                              @RequestParam String name,
+                              @RequestParam String url) {
+        cmsService.addProduct(pid, name, url);
+        return cmsService.findProduct(pid);
+    }
+
+    @RequestMapping("/prod/find")
+    @ResponseBody
+    public Product prodFind(@RequestParam String pid) {
+        return cmsService.findProduct(pid);
+    }
+
+    @RequestMapping("/prod/find2")
+    @ResponseBody
+    public Product prodFind2(@RequestParam String pid) {
+        return cmsService.findProduct(pid);
     }
 }
