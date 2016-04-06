@@ -11,18 +11,19 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * Created by unong on 4/6/16.
  */
-@RestController("/cms")
+@RestController
+@RequestMapping("/cms")
 public class CMSController {
     @Autowired
     CMSService cmsService;
 
-    @RequestMapping("style/find")
+    @RequestMapping("/style/find")
     @ResponseBody
     public Style find(@RequestParam String sid) {
         return cmsService.find(sid);
     }
 
-    @RequestMapping("style/upload")
+    @RequestMapping("/style/upload")
     @ResponseBody
     public Style upload(@RequestParam String sid,
                       @RequestParam String desc,
@@ -31,7 +32,7 @@ public class CMSController {
         return cmsService.find(sid);
     }
 
-    @RequestMapping("style/update")
+    @RequestMapping("/style/update")
     @ResponseBody
     public Style update(@RequestParam String sid,
                         @RequestParam String desc,
