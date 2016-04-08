@@ -56,8 +56,8 @@ public class CMSController {
 
     @RequestMapping("/prod/find2")
     @ResponseBody
-    public Product prodFind2(@RequestParam String pid) {
-        return cmsService.findProduct(pid);
+    public Product prodFind2(@RequestParam String name) {
+        return cmsService.findProductByName(name);
     }
 
     @RequestMapping("/style/{sid}/상품추가")

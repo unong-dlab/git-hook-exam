@@ -37,6 +37,9 @@ public class CMSService {
     public Product findProduct(String pid) {
         return productRepository.findOne(pid);
     }
+    public Product findProductByName(String name) {
+        return productRepository.findByName(name);
+    }
 
     /**
      * 이건 style, product relation table 이 만들어지면...

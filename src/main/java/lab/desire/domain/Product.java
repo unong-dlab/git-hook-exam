@@ -15,7 +15,7 @@ import java.util.List;
 @Setter
 @ToString
 @Table(name="product")
-@Entity
+@Entity(name="product")
 public class Product implements Serializable {
     @Id
     private String pid;
