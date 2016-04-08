@@ -8,7 +8,7 @@ appender("stdout", ConsoleAppender) {
         pattern = "%date{HH:mm:ss.SSS} %-5level %logger{35} - %msg -[%thread] %-4relative %n"
     }
 }
-appender("file", FileAppender) {
+appender("sql", FileAppender) {
     file = "/tmp/sql.log"
     append = true
     encoder(PatternLayoutEncoder) {
@@ -16,4 +16,4 @@ appender("file", FileAppender) {
     }
 }
 root(INFO, ["stdout"])
-logger("org.hibernate.validator.internal.util.Version", WARN, ["file"], true)
+logger("org.hibernate.SQL", DEBUG, ["sql"], true)
