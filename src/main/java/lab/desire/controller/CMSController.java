@@ -4,10 +4,7 @@ import lab.desire.domain.Product;
 import lab.desire.domain.Style;
 import lab.desire.service.CMSService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by unong on 4/6/16.
@@ -61,5 +58,12 @@ public class CMSController {
     @ResponseBody
     public Product prodFind2(@RequestParam String pid) {
         return cmsService.findProduct(pid);
+    }
+
+    @RequestMapping("/style/{sid}/상품추가")
+    @ResponseBody
+    public Style 상품추가(@PathVariable String sid, @RequestParam String pid) {
+        Style style = cmsService.findStyle(sid);
+        return style;
     }
 }

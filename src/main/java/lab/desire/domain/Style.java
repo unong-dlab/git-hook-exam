@@ -1,21 +1,17 @@
 package lab.desire.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by unong on 4/6/16.
  */
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+@Setter
+@Getter
 @Table(name="style")
 @Entity
 public class Style implements Serializable {
@@ -25,4 +21,19 @@ public class Style implements Serializable {
     private String description;
     @Column(nullable = false)
     private String representImageUrl;
+
+    public Style(String sid, String description, String representImageUrl) {
+        this.sid = sid;
+        this.description = description;
+        this.representImageUrl = representImageUrl;
+    }
+
+    public Style() {
+    }
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "style_products",
+            joinColumns = @JoinColumn(name = "sid", referencedColumnName = "sid"),
+            inverseJoinColumns = @JoinColumn(name = "pid", referencedColumnName = "pid"))
+    private List<Product> products;
 }
