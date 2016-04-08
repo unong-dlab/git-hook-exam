@@ -2,6 +2,7 @@ package lab.desire.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -12,6 +13,7 @@ import java.util.List;
  */
 @Getter
 @Setter
+@ToString
 @Table(name="product")
 @Entity
 public class Product implements Serializable {
@@ -35,7 +37,7 @@ public class Product implements Serializable {
     public Product() {
     }
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "style_products",
             joinColumns = @JoinColumn(name = "pid", referencedColumnName = "pid"),
             inverseJoinColumns = @JoinColumn(name = "sid", referencedColumnName = "sid"))

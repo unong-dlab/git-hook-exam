@@ -2,6 +2,7 @@ package lab.desire.domain;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -12,6 +13,7 @@ import java.util.List;
  */
 @Setter
 @Getter
+@ToString
 @Table(name="style")
 @Entity
 public class Style implements Serializable {
