@@ -15,7 +15,7 @@ import java.util.List;
 @Setter
 @ToString
 @Table(name="product")
-@Entity(name="product")
+@Entity
 public class Product implements Serializable {
     @Id
     private String pid;
@@ -37,9 +37,6 @@ public class Product implements Serializable {
     public Product() {
     }
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "style_products",
-            joinColumns = @JoinColumn(name = "pid", referencedColumnName = "pid"),
-            inverseJoinColumns = @JoinColumn(name = "sid", referencedColumnName = "sid"))
-    private List<Style> styles;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "style")
+    private List<Styling> productStyles;
 }

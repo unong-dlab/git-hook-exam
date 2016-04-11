@@ -4,6 +4,7 @@ import lab.desire.domain.Product;
 import lab.desire.domain.Style;
 import lab.desire.repository.ProductRepository;
 import lab.desire.repository.StyleRepository;
+import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +15,12 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class CMSService {
+    @Getter
     @Autowired
     StyleRepository styleRepository;
+    @Getter
+    @Autowired
+    ProductRepository productRepository;
 
     public void upload(String sid, String description, String url) {
         styleRepository.save(new Style(sid, description, url));
@@ -29,8 +34,6 @@ public class CMSService {
         return styleRepository.findOne(sid);
     }
 
-    @Autowired
-    ProductRepository productRepository;
     public void addProduct(String pid, String name, String url) {
         productRepository.save(new Product(pid, name, url));
     }

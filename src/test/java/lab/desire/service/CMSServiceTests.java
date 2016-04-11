@@ -1,6 +1,7 @@
 package lab.desire.service;
 
 import lab.desire.DemoApplication;
+import lab.desire.domain.Product;
 import lab.desire.domain.Style;
 import org.junit.Assert;
 import org.junit.Test;
@@ -41,5 +42,17 @@ public class CMSServiceTests {
         cmsService.update(e.getSid(), e.getDescription(), expect);
         Style s = cmsService.findStyle("babo1");
         Assert.assertEquals(expect, s.getRepresentImageUrl());
+    }
+
+    @Test
+    public void 상품추가() throws Exception {
+        cmsService.addProduct("상품ID1", "상품명1", "http://url");
+        Product p = cmsService.findProductByName("상품명1");
+        Assert.assertEquals("상품ID1", p.getPid());
+    }
+
+    @Test
+    public void mapProds() throws Exception {
+
     }
 }

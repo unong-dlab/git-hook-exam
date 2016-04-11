@@ -33,9 +33,6 @@ public class Style implements Serializable {
     public Style() {
     }
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "style_products",
-            joinColumns = @JoinColumn(name = "sid", referencedColumnName = "sid"),
-            inverseJoinColumns = @JoinColumn(name = "pid", referencedColumnName = "pid"))
-    private List<Product> products;
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "product")
+    private List<Styling> styleProducts;
 }
