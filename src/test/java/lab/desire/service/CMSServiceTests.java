@@ -50,9 +50,4 @@ public class CMSServiceTests {
         Product p = cmsService.findProductByName("상품명1");
         Assert.assertEquals("상품ID1", p.getPid());
     }
-
-    @Test
-    public void mapProds() throws Exception {
-
-    }
 }

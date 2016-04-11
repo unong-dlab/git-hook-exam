@@ -1,7 +1,6 @@
 package lab.desire.domain;
 
 import lombok.Getter;
-import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
@@ -11,7 +10,6 @@ import java.util.List;
 /**
  * Created by unong on 4/6/16.
  */
-@Setter
 @Getter
 @ToString
 @Table(name="style")
@@ -23,6 +21,9 @@ public class Style implements Serializable {
     private String description;
     @Column(nullable = false)
     private String representImageUrl;
+    public Style(String sid) {
+        this.sid = sid;
+    }
 
     public Style(String sid, String description, String representImageUrl) {
         this.sid = sid;

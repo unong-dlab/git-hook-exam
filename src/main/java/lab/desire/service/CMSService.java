@@ -2,11 +2,16 @@ package lab.desire.service;
 
 import lab.desire.domain.Product;
 import lab.desire.domain.Style;
+import lab.desire.domain.Styling;
 import lab.desire.repository.ProductRepository;
 import lab.desire.repository.StyleRepository;
+import lab.desire.repository.StylingRepository;
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * product, style 모두 관리하는 service 라 해두자
@@ -14,6 +19,7 @@ import org.springframework.stereotype.Service;
  * Created by unong on 4/6/16.
  */
 @Service
+@Transactional
 public class CMSService {
     @Getter
     @Autowired
@@ -21,11 +27,13 @@ public class CMSService {
     @Getter
     @Autowired
     ProductRepository productRepository;
+    @Getter
+    @Autowired
+    StylingRepository stylingRepository;
 
     public void upload(String sid, String description, String url) {
         styleRepository.save(new Style(sid, description, url));
     }
-
     public void update(String sid, String description, String url) {
         styleRepository.save(new Style(sid, description, url));
     }
@@ -51,5 +59,9 @@ public class CMSService {
      */
     public Style findAll(String sid) {
         return styleRepository.findOne(sid);
+    }
+
+    public List<Styling> styling(List<Styling> ss) {
+        return stylingRepository.save(ss);
     }
 }
