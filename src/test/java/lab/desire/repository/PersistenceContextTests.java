@@ -2,6 +2,7 @@ package lab.desire.repository;
 
 import lab.desire.DemoApplication;
 import lab.desire.domain.Style;
+import lab.desire.domain.Styling;
 import lab.desire.utils.DemoRandomGenerator;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
@@ -14,6 +15,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.List;
 
 /**
  * Created by unong on 4/12/16.
@@ -23,7 +25,7 @@ import javax.persistence.PersistenceContext;
 @SpringApplicationConfiguration(classes = DemoApplication.class)
 @WebAppConfiguration
 public class PersistenceContextTests {
-    @PersistenceContext
+    @PersistenceContext(unitName = "primary")
     private EntityManager em;
 
     @Autowired
@@ -42,5 +44,15 @@ public class PersistenceContextTests {
         Assert.assertEquals(s2.getDescription(), s.getDescription());
     }
 
+    @Test
+    public void testNamedQueryJPQL() throws Exception {
+        Style s = emRepostory.findStyleNamedQuery("babo2");
+        Assert.assertEquals("아이고아이고", s.getDescription());
+    }
 
+    @Test
+    public void testMapTableNamedQueryJPQL() throws Exception {
+        List<Styling> list = emRepostory.findStylingNamedQuery("style1");
+        Assert.assertEquals(3, list.size());
+    }
 }
