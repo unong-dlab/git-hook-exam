@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by unong on 4/12/16.
@@ -38,5 +39,12 @@ public class ManualEntityManagerRepository {
     @Transactional
     public List<Styling> findStylingNamedQuery(String sid) {
         return em.createNamedQuery("Styling.findJPQL").setParameter("sid", sid).getResultList();
+    }
+
+    @SuppressWarnings("unchecked")
+    @Transactional
+    public List findStylingNamedNativeQuery(String sid) {
+        List list = em.createNamedQuery("style_products.findSQL").setParameter("sid", sid).getResultList();
+        return list;
     }
 }

@@ -55,4 +55,13 @@ public class PersistenceContextTests {
         List<Styling> list = emRepostory.findStylingNamedQuery("style1");
         Assert.assertEquals(3, list.size());
     }
+
+    @Test
+    public void testMapTableNamedNativeQueryJPQL() throws Exception {
+        List list = emRepostory.findStylingNamedNativeQuery("style1");
+        for(Object o: list) {
+            log.info("UNONG:: {}, {}", o, o.getClass().getCanonicalName());
+        }
+//        log.info("UNONG {}", list);
+    }
 }
