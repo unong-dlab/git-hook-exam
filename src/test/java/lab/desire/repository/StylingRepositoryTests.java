@@ -61,7 +61,7 @@ public class StylingRepositoryTests {
 
     @Test
     public void 트랜잭션으로매핑() throws Exception {
-        List<Styling> r = cmsService.styling("style1", Lists.newArrayList("prod1", "prod2"), Lists.newArrayList(CoordiType.INNER, CoordiType.OUTER));
+        List<Styling> r = cmsService.styling("style1", Lists.newArrayList("상품ID1", "상품ID6PBl"), Lists.newArrayList(CoordiType.INNER, CoordiType.OUTER));
         Assert.assertNotNull(r);
     }
 

@@ -76,10 +76,6 @@ public class CMSService {
         Style s1 = styleRepository.findOne(sid);
         Product p1 = productRepository.findOne(pidList.get(0));
         Styling sp1 = new Styling(s1, p1, coordis.get(0));
-        Product p2 = new Product("prod2");
-//        Product p2 = productRepository.findOne(pidList.get(1));
-//        p2.setName("상품업데이트하냐2번째");
-//        Styling sp2 = new Styling(s1, p2, coordis.get(1));
         List<Styling> r = stylingRepository.save(Lists.newArrayList(sp1));
         return r;
     }
