@@ -1,5 +1,7 @@
 package lab.desire.service;
 
+import com.google.common.collect.Lists;
+import lab.desire.domain.CoordiType;
 import lab.desire.domain.Product;
 import lab.desire.domain.Style;
 import lab.desire.domain.Styling;
@@ -59,6 +61,27 @@ public class CMSService {
      */
     public Style findAll(String sid) {
         return styleRepository.findOne(sid);
+    }
+
+    /**
+     * 여긴 고민이 많이 된다.
+     * 매핑을 해주기 위해서 원본객체들을 다시 persistence 영역에 올려줘야 한단 말인가
+     *
+     * @param sid
+     * @param pidList
+     * @param coordis
+     * @return
+     */
+    public List<Styling> styling(String sid, List<String> pidList, List<CoordiType> coordis) {
+        Style s1 = styleRepository.findOne(sid);
+        Product p1 = productRepository.findOne(pidList.get(0));
+        Styling sp1 = new Styling(s1, p1, coordis.get(0));
+        Product p2 = new Product("prod2");
+//        Product p2 = productRepository.findOne(pidList.get(1));
+//        p2.setName("상품업데이트하냐2번째");
+//        Styling sp2 = new Styling(s1, p2, coordis.get(1));
+        List<Styling> r = stylingRepository.save(Lists.newArrayList(sp1));
+        return r;
     }
 
     public List<Styling> styling(List<Styling> ss) {

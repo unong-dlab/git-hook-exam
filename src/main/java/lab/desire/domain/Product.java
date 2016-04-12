@@ -37,6 +37,6 @@ public class Product implements Serializable {
     public Product() {
     }
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "style")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "style")
     private List<Styling> productStyles;
 }

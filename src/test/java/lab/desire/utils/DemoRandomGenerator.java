@@ -39,4 +39,7 @@ public class DemoRandomGenerator {
     public static Styling mapStyling(String sid, String pid, CoordiType t) {
         return new Styling(new Style(sid), new Product(pid), t);
     }
+    public static Styling mapStyling(Style style, Product product, CoordiType t) {
+        return new Styling(style, product, t);
+    }
 }

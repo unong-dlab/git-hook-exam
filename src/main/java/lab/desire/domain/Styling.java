@@ -11,16 +11,14 @@ import javax.persistence.*;
 @ToString
 @Getter
 @Entity
+@IdClass(StylingId.class)
 @Table(name = "style_products")
 public class Styling {
-    @Id @GeneratedValue
-    @Column(name = "styling_id")
-    private Long id;
-
+    @Id
     @ManyToOne
     @JoinColumn(name="sid")
     private Style style;
-
+    @Id
     @ManyToOne
     @JoinColumn(name="pid")
     private Product product;
@@ -33,6 +31,10 @@ public class Styling {
 //
 //    @Temporal(TemporalType.TIMESTAMP)
 //    private Date updttm;
+
+
+    public Styling() {
+    }
 
     public Styling(Style style, Product product, CoordiType category) {
         this.style = style;
