@@ -17,6 +17,7 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,7 +34,6 @@ public class StylingRepositoryTests {
     @Autowired
     CMSService cmsService;
 
-    /*
     @Test(expected = Exception.class)
     public void 맨땅에스타일매핑() throws Exception {
         Styling sp1 = DemoRandomGenerator.mapStyling("style1", "prod1", CoordiType.INNER);
@@ -45,7 +45,6 @@ public class StylingRepositoryTests {
         Assert.assertNotNull(r);
         log.info("{}", r);
     }
-    */
 
     @Test
     public void 같은ID같은객체로매핑() throws Exception {
