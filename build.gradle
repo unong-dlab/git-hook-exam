@@ -47,6 +47,7 @@ resolutionStrategy {
 */
 dependencies {
     optional("org.springframework.boot:spring-boot-devtools")
+    compile('javax:javaee-api:7.0')
 	compile('org.springframework.boot:spring-boot-starter-data-jpa')
     compile('org.springframework.boot:spring-boot-starter-logging')
 	compile('org.springframework.boot:spring-boot-starter-jdbc')

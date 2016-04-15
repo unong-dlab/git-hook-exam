@@ -2,9 +2,12 @@ package lab.desire.controller;
 
 import lab.desire.domain.Product;
 import lab.desire.domain.Style;
+import lab.desire.domain.dto.StyleProductDto;
 import lab.desire.service.CMSService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * Created by unong on 4/6/16.
@@ -65,5 +68,11 @@ public class CMSController {
     public Style 상품추가(@PathVariable String sid, @RequestParam String pid) {
         Style style = cmsService.findStyle(sid);
         return style;
+    }
+
+    @RequestMapping("/style/코디찾기/{sid}")
+    @ResponseBody
+    public List<StyleProductDto> 코디찾기(@PathVariable String sid) {
+        return cmsService.getStyleWithProds(sid);
     }
 }

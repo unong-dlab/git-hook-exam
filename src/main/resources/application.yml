@@ -5,13 +5,35 @@ spring:
       username: root
       password:
       driver-class-name: com.mysql.jdbc.Driver
-      initialize: true
+      test-while-idle: true
+      time-between-eviction-runs-millis: 86400000
+      validation-query: SELECT 1
+      continue-on-error: true
+      test-on-borrow: true
+      max-active: 4
+      max-wait: 86400000
+      timeBetweenEvictionRunsMillis: 86400000
+      validationQuery: SELECT 1
+      testOnBorrow: true
+      testOnConnect: true
+      testWhileIdle: true
     secondary:
       url: jdbc:mysql://localhost:3306/proto
       username: root
       password:
       driver-class-name: com.mysql.jdbc.Driver
-      initialize: true
+      test-while-idle: true
+      time-between-eviction-runs-millis: 86400000
+      validation-query: SELECT 1
+      continue-on-error: true
+      test-on-borrow: true
+      max-active: 4
+      max-wait: 86400000
+      timeBetweenEvictionRunsMillis: 86400000
+      validationQuery: SELECT 1
+      testOnBorrow: true
+      testOnConnect: true
+      testWhileIdle: true
   jpa:
     show-sql: false
     generate-ddl: true

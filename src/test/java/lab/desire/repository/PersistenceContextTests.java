@@ -3,6 +3,7 @@ package lab.desire.repository;
 import lab.desire.DemoApplication;
 import lab.desire.domain.Style;
 import lab.desire.domain.Styling;
+import lab.desire.domain.dto.StyleProductDto;
 import lab.desire.utils.DemoRandomGenerator;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
@@ -31,6 +32,9 @@ public class PersistenceContextTests {
     @Autowired
     private ManualEntityManagerRepository emRepostory;
 
+    @Autowired
+    private ProductRepository productRepository;
+
     @Test
     public void 셋팅되나() throws Exception {
         Assert.assertNotNull(em);
@@ -58,10 +62,19 @@ public class PersistenceContextTests {
 
     @Test
     public void testMapTableNamedNativeQueryJPQL() throws Exception {
-        List list = emRepostory.findStylingNamedNativeQuery("style1");
-        for(Object o: list) {
+        List<StyleProductDto> list = emRepostory.findStylingNamedNativeQuery("style1");
+        for(StyleProductDto o: list) {
             log.info("UNONG:: {}, {}", o, o.getClass().getCanonicalName());
         }
 //        log.info("UNONG {}", list);
     }
+
+
+//    @Test
+//    public void testQueryAnnotationNativeNamedQuery() {
+//        List<StyleProductDto> list = productRepository.queryStyleProductNativeQuery("style1");
+//        for(Object dto: list) {
+//            log.info("UNONG {}", dto);
+//        }
+//    }
 }

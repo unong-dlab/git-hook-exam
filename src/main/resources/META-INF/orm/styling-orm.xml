@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <entity-mappings xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm
-                                    http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd" version="2.1">
-
+                 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd"
+                 version="2.1">
     <named-query name="Styling.findJPQL">
         <query>SELECT t FROM Styling t WHERE t.style.sid = :sid</query>
     </named-query>
-
-    <named-native-query name="style_products.findSQL">
+    <named-native-query name="style_products.findSQL" result-set-mapping="baboDto">
         <query><![CDATA[
-            SELECT s.*,p.pid,p.name FROM style_products sp, style s, product p WHERE s.sid = :sid AND s.sid = sp.sid AND sp.pid = p.pid
+            SELECT s.sid,s.description,p.pid,p.name FROM style_products sp, style s, product p WHERE s.sid = :sid AND s.sid = sp.sid AND sp.pid = p.pid
         ]]></query>
     </named-native-query>
+
+    <sql-result-set-mapping name="baboDto">
+        <constructor-result target-class="lab.desire.domain.dto.StyleProductDto">
+            <column name="sid"/>
+            <column name="description"/>
+            <column name="pid"/>
+            <column name="name"/>
+        </constructor-result>
+    </sql-result-set-mapping>
 </entity-mappings>

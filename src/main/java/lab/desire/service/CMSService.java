@@ -5,6 +5,8 @@ import lab.desire.domain.CoordiType;
 import lab.desire.domain.Product;
 import lab.desire.domain.Style;
 import lab.desire.domain.Styling;
+import lab.desire.domain.dto.StyleProductDto;
+import lab.desire.repository.ManualEntityManagerRepository;
 import lab.desire.repository.ProductRepository;
 import lab.desire.repository.StyleRepository;
 import lab.desire.repository.StylingRepository;
@@ -32,6 +34,9 @@ public class CMSService {
     @Getter
     @Autowired
     StylingRepository stylingRepository;
+    @Getter
+    @Autowired
+    ManualEntityManagerRepository manualEntityManagerRepository;
 
     public void upload(String sid, String description, String url) {
         styleRepository.save(new Style(sid, description, url));
@@ -82,5 +87,9 @@ public class CMSService {
 
     public List<Styling> styling(List<Styling> ss) {
         return stylingRepository.save(ss);
+    }
+
+    public List<StyleProductDto> getStyleWithProds(String sid) {
+        return manualEntityManagerRepository.findStylingNamedNativeQuery(sid);
     }
 }
