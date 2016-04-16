@@ -3,7 +3,6 @@
 build
 target
 *iml
-gradlew
-gradlew.bat
 data
 gradle
+.gradle
