@@ -16,6 +16,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -69,7 +70,19 @@ public class PersistenceContextTests {
 //        log.info("UNONG {}", list);
     }
 
-
+    /**
+     * hashmap 으로만 결과를 뱉게할수만 있어도 bean 으로 자동매핑은 가능할텐데... 잘안됨
+     * 차라리 array 로 받은걸 자동으로 생성자매핑해주는게 쉬울지도 모름, 일단은 포기
+     * @throws Exception
+     */
+    @Test(expected = ArrayIndexOutOfBoundsException.class)
+    public void testMapTableHashMapNamedNativeQueryJPQL() throws Exception {
+        List<HashMap> list = emRepostory.findStylingMapNamedNativeQuery("style1");
+        for(HashMap o: list) {
+            log.info("UNONG:: {}, {}", o, o.getClass().getCanonicalName());
+        }
+//        log.info("UNONG {}", list);
+    }
 //    @Test
 //    public void testQueryAnnotationNativeNamedQuery() {
 //        List<StyleProductDto> list = productRepository.queryStyleProductNativeQuery("style1");

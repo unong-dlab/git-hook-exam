@@ -36,7 +36,7 @@ public class DemoApplication {
                 .packages("lab.desire.domain")
                 .persistenceUnit("primary")
                 .build();
-        emf.setMappingResources("META-INF/orm/styling-orm.xml");
+        emf.setMappingResources("META-INF/orm/styling-orm.xml", "META-INF/orm.xml");
         return emf;
     }
 

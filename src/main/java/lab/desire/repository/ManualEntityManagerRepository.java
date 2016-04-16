@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -44,6 +45,13 @@ public class ManualEntityManagerRepository {
     @Transactional
     public List<StyleProductDto> findStylingNamedNativeQuery(String sid) {
         return em.createNamedQuery("style_products.findSQL", StyleProductDto.class)
+                .setParameter("sid", sid)
+                .getResultList();
+    }
+
+    @Transactional
+    public List<HashMap> findStylingMapNamedNativeQuery(String sid) {
+        return em.createNamedQuery("style_products.complexSQL", HashMap.class)
                 .setParameter("sid", sid)
                 .getResultList();
     }

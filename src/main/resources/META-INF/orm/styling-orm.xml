@@ -6,6 +6,11 @@
     <named-query name="Styling.findJPQL">
         <query>SELECT t FROM Styling t WHERE t.style.sid = :sid</query>
     </named-query>
+    <named-native-query name="style_products.complexSQL">
+        <query><![CDATA[
+            SELECT s.sid,s.description,p.pid,p.name FROM style_products sp, style s, product p WHERE s.sid = :sid AND s.sid = sp.sid AND sp.pid = p.pid
+        ]]></query>
+    </named-native-query>
     <named-native-query name="style_products.findSQL" result-set-mapping="baboDto">
         <query><![CDATA[
             SELECT s.sid,s.description,p.pid,p.name FROM style_products sp, style s, product p WHERE s.sid = :sid AND s.sid = sp.sid AND sp.pid = p.pid
