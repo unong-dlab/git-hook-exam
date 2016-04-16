@@ -81,13 +81,5 @@ public class PersistenceContextTests {
         for(HashMap o: list) {
             log.info("UNONG:: {}, {}", o, o.getClass().getCanonicalName());
         }
-//        log.info("UNONG {}", list);
     }
-//    @Test
-//    public void testQueryAnnotationNativeNamedQuery() {
-//        List<StyleProductDto> list = productRepository.queryStyleProductNativeQuery("style1");
-//        for(Object dto: list) {
-//            log.info("UNONG {}", dto);
-//        }
-//    }
 }
