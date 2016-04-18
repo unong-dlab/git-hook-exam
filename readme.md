@@ -1,3 +1,7 @@
 # sample
-* spring boot
-* gradle 은 좀 짜증
+
+# hotfix 방법은 어떻고
+
+# 배포는 어떻게 하고
+
+# 서버 환경은 어떻다.
