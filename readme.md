@@ -10,8 +10,9 @@
 * 이번에도 충돌나나?
 * gradle 잘좀해바라
 
-# feature 개발에 충돌 나봐라
-* ㅈ 되바라~
+# feature 개발 방법은 git flow feature start 'issue-1'
+* ye~
+* feature 충돌 얍!
 
 # 배포는 어떻게 하고
 
