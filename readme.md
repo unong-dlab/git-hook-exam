@@ -21,5 +21,7 @@
 # 배포는 어떻게 하고
 * 누가 release 하는 동안에 그 다음 release 용으로 누군가가 feature 를 추가하고 머지를 빡 하는거지 develop 에
 * feature 를 막 추가해주고
+* release 배포를 하는데..
+* 이렇게 수정하고 있는 동안 누군가는 develop 에서 또 수정하고 잇을꺼다.
 
 # 서버 환경은 어떻다.
