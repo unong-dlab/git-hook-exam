@@ -19,5 +19,6 @@
 * 깜빡하고 develop 에서 개발하다가도
 
 # 배포는 어떻게 하고
+* 누가 release 하는 동안에 그 다음 release 용으로 누군가가 feature 를 추가하고 머지를 빡 하는거지 develop 에
 
 # 서버 환경은 어떻다.
