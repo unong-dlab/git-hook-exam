@@ -10,6 +10,9 @@
 * 이번에도 충돌나나?
 * gradle 잘좀해바라
 
+# feature 개발 방법은 git flow feature start 'issue-1'
+* ye~
+
 # 배포는 어떻게 하고
 
 # 서버 환경은 어떻다.
