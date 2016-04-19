@@ -10,6 +10,9 @@
 * 이번에도 충돌나나?
 * gradle 잘좀해바라
 
+# hotfix 한번더
+* 이것도 충돌날텐데
+
 # feature 개발 방법은 git flow feature start 'issue-1'
 * ye~
 * feature 충돌 얍!
