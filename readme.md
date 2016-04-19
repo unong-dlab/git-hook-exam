@@ -13,6 +13,7 @@
 # feature 개발 방법은 git flow feature start 'issue-1'
 * ye~
 * feature 충돌 얍!
+* 깜빡하고 develop 에서 개발하다가도
 
 # 배포는 어떻게 하고
 
