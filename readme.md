@@ -1,6 +1,10 @@
 # sample
 
-# hotfix 방법은 어떻고
+# hotfix 방법은 어떻고 & PR 도 어쩌고
+* PR 하는데 충돌나바라 짠
+* 이번엔 git flow 만 써보자
+* jgitflow 나쁘진 않은데 release 에만 쓰면 좋겠다. 그치?
+* 그래도 모르니 다시 체크해보자.
 * hotfix 에서 여러번 커밋하면 어찌되니?
 * 이번에도 충돌나나?
 * gradle 잘좀해바라
