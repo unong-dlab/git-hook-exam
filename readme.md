@@ -1,3 +1,5 @@
+[![Stories in Ready](https://badge.waffle.io/unong-dlab/git-hook-exam.svg?label=ready&title=Ready)](http://waffle.io/unong-dlab/git-hook-exam)
+
 # sample
 
 # hotfix 방법은 어떻고 & PR 도 어쩌고
