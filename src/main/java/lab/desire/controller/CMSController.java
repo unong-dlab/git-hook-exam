@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
+ * controller for cms
+ *
  * Created by unong on 4/6/16.
  */
 @RestController
@@ -47,8 +49,11 @@ public class CMSController {
     public Product prodUpload(@RequestParam String pid,
                               @RequestParam String name,
                               @RequestParam String url) {
-        cmsService.addProduct(pid, name, url);
-        return cmsService.findProduct(pid);
+        if (cmsService != null) {
+            cmsService.addProduct(pid, name, url);
+            return cmsService.findProduct(pid);
+        }
+        return new Product();
     }
 
     @RequestMapping("/prod/find")
@@ -66,8 +71,7 @@ public class CMSController {
     @RequestMapping("/style/{sid}/상품추가")
     @ResponseBody
     public Style 상품추가(@PathVariable String sid, @RequestParam String pid) {
-        Style style = cmsService.findStyle(sid);
-        return style;
+        return cmsService.findStyle(sid);
     }
 
     @RequestMapping("/style/코디찾기/{sid}")
