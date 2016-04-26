@@ -6,7 +6,7 @@ simpleBuild {
     ]
 
     before_script = "echo before"
-    script = 'echo after $FOO'
+    script = 'echo after $BAR'
 
     notifications = [
         email : "yunho.jung@desirelab.co.kr"
