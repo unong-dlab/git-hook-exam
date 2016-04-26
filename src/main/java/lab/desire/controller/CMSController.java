@@ -50,6 +50,7 @@ public class CMSController {
                               @RequestParam String name,
                               @RequestParam String url) {
         if (cmsService != null) {
+            // 요맨 주석 땡땡
             cmsService.addProduct(pid, name, url);
             return cmsService.findProduct(pid);
         }
