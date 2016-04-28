@@ -2,7 +2,8 @@
 .idea
 build
 target
-*iml
 data
 gradle
 .gradle
+node_modules
+.grunt-init
