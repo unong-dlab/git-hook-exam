@@ -32,6 +32,7 @@ public class CMSController {
                       @RequestParam String desc,
                       @RequestParam String url) {
         cmsService.upload(sid, desc, url);
+        // 그냥 테스트용 주석
         return cmsService.findStyle(sid);
     }
 
